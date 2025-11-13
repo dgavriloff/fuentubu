@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive 3D Model</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas#bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            outline: none;
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-[#f9f9f9]">
+    <div id="loading-overlay" class="absolute inset-0 bg-[#f9f9f9] bg-opacity-80 flex items-center justify-center z-20">
+        <p class="text-gray-800 text-2xl">Loading 3D model...</p>
+    </div>
+    <canvas id="bg"></canvas>
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://esm.sh/three@0.163.0",
+    "three/addons/": "https://esm.sh/three@0.163.0/examples/jsm/",
+    "three/": "https://aistudiocdn.com/three@^0.181.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.6"
+  }
+}
+</script>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -18,6 +18,21 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      assetsInclude: ['**/*.glb', '**/*.gltf'],
+      publicDir: 'public',
+      build: {
+        assetsInlineLimit: 0,
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name && assetInfo.name.endsWith('.glb')) {
+                return 'assets/models/[name][extname]';
+              }
+              return 'assets/[name]-[hash][extname]';
+            }
+          }
+        }
       }
     };
 });
